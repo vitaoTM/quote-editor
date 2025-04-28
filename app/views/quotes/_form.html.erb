@@ -5,6 +5,9 @@
     </div>
   <% end %>
 
-  <%= f.input :name, input_html: { autofocus: true } %>
-  <%= f.submit class: "btn btn--secondary" %>
+  <%= f.input :name, input_html: { autofocus: true }, class: "input" %>
+  <div>
+    <%= link_to "Cancel", quotes_path, class: "btn btn--light" %>
+    <%= f.submit class: "btn btn--secondary" %>
+  </div>
 <% end %>
