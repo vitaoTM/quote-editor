@@ -7,4 +7,5 @@ class Quote < ApplicationRecord
   # after_destroy_commit -> { broadcast_remove_to "quotes" } # , partial: "quotes/quote", locals: { quote: self }, target: "quotes" }
 
   broadcast_to ->(quote) { "quotes" }, insert_by: :prepend
+  belongs_to :company
 end
