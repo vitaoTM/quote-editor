@@ -61,3 +61,5 @@ end
 gem "simple_form", "~> 5.3"
 
 gem "devise", "~> 4.9"
+
+gem "rspec-rails", "~> 8.0"
