@@ -1,8 +1,9 @@
 require "test_helper"
 
-class QuoteTest < ActiveSupport::TestCase
+class QuotesTest < ActiveSupport::TestCase
   setup do
-    @quote = quotes(:first)
+    loggin_as users(:accountant)
+    @quote = Quote.ordered.first # quotes(:first)
   end
   test "showing a quote" do
     visit quotes_path
