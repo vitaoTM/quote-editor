@@ -18,6 +18,10 @@ class LineItemDateController < ApplicationController
   private
 
   def line_item_date_params
+    params.require(:line_item_date).permit(:date)
+  end
+
+  def set_quote
     @quote = current_company.quotes.find(params[:quote_id])
   end
 end
