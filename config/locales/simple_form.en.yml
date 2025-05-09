@@ -12,12 +12,17 @@ en:
   labels:
     quote:
       name: Name
+    line_item_date:
+      date: Date
 
   helpers:
     submit:
       quote:
         create: Create quote
         update: Update quote
+      line_item_date:
+        create: Create date
+        update: Update date
       # You can uncomment the line below if you need to overwrite the whole required html.
       # When using html, text and mark won't be used.
       # html: '<abbr title="required">*</abbr>'
