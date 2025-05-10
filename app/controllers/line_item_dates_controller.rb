@@ -24,7 +24,10 @@ class LineItemDatesController < ApplicationController
 
   def update
     if @line_item_date.update(line_item_date_params)
-      redirect_to quote_path(@quote), notice: "Date was Updated"
+      respond_to do |format|
+        format.html { redirect_to quote_path(@quote), notice: "Date was Updated" }
+        format.turbo_stream { flash.now[:notice] = "Date was Updated" }
+      end
     else
       render :edit, status: :unprecessable_entity
     end
