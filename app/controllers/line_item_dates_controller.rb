@@ -36,7 +36,10 @@ class LineItemDatesController < ApplicationController
   def destroy
     @line_item_date.destroy
 
-    redirect_to quote_path(@quote), notice: "Date was deleted"
+    respond_to do |format|
+      format.html { redirect_to quote_path(@quote), notice: "Date was deleted" }
+      format.turbo_stream { flash.now[:notice] = "Date was deleted" }
+    end
   end
 
   private
