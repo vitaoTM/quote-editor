@@ -4,7 +4,6 @@
       <h2 class="line-item-date__title">
         <%= l(line_item_date.date, format: :long) %>
       </h2>
-
       <div class="line-item-date__actions">
         <%= button_to "Delete",
                       quote_line_item_date_path(quote, line_item_date),
@@ -15,22 +14,22 @@
                     [:edit, quote, line_item_date],
                     class: "btn btn--light" %>
       </div>
-
-      <div class="line-item-date__body">
-        <div class="line-item line-item--header">
-          <div class="line-item__name">Article</div>
-          <div class="line-item__quantity">Quantity</div>
-          <div class="line-item__price">Price</div>
-          <div class="line-item__actions"></div>
-        </div>
+    </div>
+    <div class="line-item-date__body">
+      <div class="line-item line-item--header">
+        <div class="line-item__name">Article</div>
+        <div class="line-item__quantity">Quantity</div>
+        <div class="line-item__price">Price</div>
+        <div class="line-item__actions"></div>
       </div>
 
       <%= render line_item_date.line_items, quote: quote, line_item_date: line_item_date %>
       <div class="line-item-date__footer">
         <%= link_to "Add item",
                     [:new, quote, line_item_date, :line_item],
+                    data: { turbo_fram: "_top" },
                     class: "btn btn--primaty" %>
-      </div>
+      <div>
     </div>
   </div>
 <% end %>
