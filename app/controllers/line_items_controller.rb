@@ -1,4 +1,4 @@
-class IneItemsController < ApplicationController
+class LineItemsController < ApplicationController
   before_action :set_quote
   before_action :set_line_item_date
 
@@ -19,7 +19,7 @@ class IneItemsController < ApplicationController
   private
 
   def set_quote
-    @quote = current_company.quotes.find(params[:id])
+    @quote = current_company.quotes.find(params[:quote_id])
   end
 
   def set_line_item_date
