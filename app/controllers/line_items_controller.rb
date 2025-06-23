@@ -11,14 +11,16 @@ class LineItemsController < ApplicationController
     @line_item = @line_item_date.line_items.build(line_item_params)
 
     if @line_item.save
-      redirect_to quote_path(@quote), notice: "Item was created"
+      respond_to do |format|
+        format.html { redirect_to quote_path(@quote), notice: "Item was created" }
+        format.turbo_stream { flash.now[:notice] = "Item was created" }
+      end
     else
       render :new, status: :unprecessable_entity
     end
   end
 
   def edit
-
   end
 
   def update
@@ -53,4 +55,3 @@ class LineItemsController < ApplicationController
     @line_item = @line_item_date.line_items.find(params[:id])
   end
 end
-

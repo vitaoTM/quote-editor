@@ -1,12 +1,12 @@
 <%= turbo_frame_tag line_item_date do %>
   <div class="line-item-date">
-    <div class="line-item-date__header">
+    <div class="line-item-date__actions">
       <h2 class="line-item-date__title">
         <%= l(line_item_date.date, format: :long) %>
       </h2>
-      <div class="line-item-date__actions">
         <%= button_to "Delete",
-                      quote_line_item_date_path(quote, line_item_date),
+                      [quote, line_item_date, line_item],
+                      # quote_line_item_date_path(quote, line_item_date),
                       method: :delete,
                       form: {data: { turbo_frame: "_top", turbo_confirm: "Are You sure?" } },
                       class: "btn btn--light" %>
@@ -14,8 +14,8 @@
                     [:edit, quote, line_item_date],
                     data: { turbo_frame: "_top" },
                     class: "btn btn--light" %>
-      </div>
     </div>
+
     <div class="line-item-date__body">
       <div class="line-item line-item--header">
         <div class="line-item__name">Article</div>
@@ -25,12 +25,19 @@
       </div>
 
       <%= render line_item_date.line_items, quote: quote, line_item_date: line_item_date %>
-      <div class="line-item-date__footer">
-        <%= link_to "Add item",
+
+      <%= turbo_frame_tag nested_dom_id(line_item_date, "line_item") do %>
+        <%= render line_item_date.line_items, quote: quote, line_item_date: line_item_date %>
+      <% end %>
+
+
+        <div class="line-item-date__footer">
+          <%= link_to "Add item",
                     [:new, quote, line_item_date, :line_item],
-                    data: { turbo_frame: "_top" },
-                    class: "btn btn--primaty" %>
-      <div>
+                    data: { turbo_frame: nested_dom_id(line_item_date, LineItem.new) },
+                    class: "btn btn--primary" %>
+        <div>
+      </div>
     </div>
   </div>
 <% end %>
