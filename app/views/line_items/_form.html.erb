@@ -1,5 +1,6 @@
 <%= simple_form_for [quote, line_item_date, line_item],
-                    html: { class: "form line-item line-item-date--form" } do |f| %>
+                    html: { class: "form line-item line-item--form" } do |f| %>
+
   <%= form_error_notification(line_item) %>
 
   <%= f.input :name,

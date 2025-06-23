@@ -8,10 +8,11 @@
         <%= button_to "Delete",
                       quote_line_item_date_path(quote, line_item_date),
                       method: :delete,
-                      form: {data: {turbo_confirm: "Are you sure?" } },
+                      form: {data: { turbo_frame: "_top", turbo_confirm: "Are You sure?" } },
                       class: "btn btn--light" %>
         <%= link_to "Edit",
                     [:edit, quote, line_item_date],
+                    data: { turbo_frame: "_top" },
                     class: "btn btn--light" %>
       </div>
     </div>
@@ -27,7 +28,7 @@
       <div class="line-item-date__footer">
         <%= link_to "Add item",
                     [:new, quote, line_item_date, :line_item],
-                    data: { turbo_fram: "_top" },
+                    data: { turbo_frame: "_top" },
                     class: "btn btn--primaty" %>
       <div>
     </div>
