@@ -30,6 +30,7 @@ class LineItemsController < ApplicationController
 
   def destroy
     @line_item.destroy
+    redirect_to quote_path(@quote), notice: "Item was destroyed"
   end
 
   private
