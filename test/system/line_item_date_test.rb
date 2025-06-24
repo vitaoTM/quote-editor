@@ -47,4 +47,8 @@
 
 #     assert_no_text I18n.l(Date.current, format: :long)
 #   end
+#
+#    test "Destroying a line item date" do
+#      assert_text number_to_currency(@quote.total_price)
+#    end
 # end

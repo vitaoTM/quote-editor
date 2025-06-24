@@ -60,4 +60,18 @@
 #       assert_no_text @line_item.name
 #     end
 #   end
+
+#   test "Creating a new line item" do
+#     assert_text number_to_currency(@quote.total_price)
+#   end
+
+#   test "Updating a line item" do
+#     # All the previous code
+#     assert_text number_to_currency(@quote.total_price)
+#   end
+
+#   test "Destroying a line item" do
+#     # All the previous code
+#     assert_text number_to_currency(@quote.total_price)
+#   end
 # end
