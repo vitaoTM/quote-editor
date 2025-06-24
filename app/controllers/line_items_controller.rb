@@ -11,7 +11,10 @@ class LineItemsController < ApplicationController
     @line_item = @line_item_date.line_items.build(line_item_params)
 
     if @line_item.save
-      redirect_to quote_path(@quote), notice: "Item was created"
+      respond_to do |format|
+        format.html { redirect_to quote_path(@quote), notice: "Item was created" }
+        format.turbo_stream { flash.now[:notice] = "Item was updated" }
+      end
     else
       render :new, status: :unprocessable_entity
     end
