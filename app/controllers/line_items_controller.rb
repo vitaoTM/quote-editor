@@ -36,7 +36,11 @@ class LineItemsController < ApplicationController
 
   def destroy
     @line_item.destroy
-    redirect_to quote_path(@quote), notice: "Item was destroyed"
+
+    respond_to do |format|
+      format.html { redirect_to quote_path(@quote), notice: "Item was destroyed" }
+      format.turbo_stream { flash.now[:notice] = "Item was destroyed" }
+    end
   end
 
   private
